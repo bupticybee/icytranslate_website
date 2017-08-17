@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='ch'>
+    <head>
+        <meta name="charset" content="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="ROBOTS" content="ALL" />
+        <meta name="keywords" content="Python, translate, deep learning,neural network" />
+        <link rel="stylesheet" href="statics/css/clear-style.css" rel="stylesheet">
+        <link rel="stylesheet" href="statics/css/index.css" rel="stylesheet">
+        <title>Icytranslate - I see translate</title>
+    </head>
+    <body>
+        <div class="header-bar">
+            <div class="header-left">
+                <div class="logo">
+                    Icytranslate
+                </div>
+                <div class="logo-desc">
+                    机器翻译平台
+                </div>
+            </div>
+        </div>
+        <div class="translate-app" ng-app="translate-app" ng-controller="TranslateController as tc">
+            <div class="translate-title">
+                <div class="translate-desc-left">
+                    翻译
+                </div>
+                <div class="translate-desc-right">
+                    <a href="" ng-click="tc.reverse_immediate()">{{ tc.immediate_translate ? '关闭即时翻译':'开启即时翻译' }}</a>
+                </div>
+            </div>
+            <div class="translate-area">
+                <div class="translate-area-left">
+                    <div class="language-choose">
+                        <div class="language-select">
+                            英语
+                        </div>
+                    </div>
+                    <textarea class="input-box"  ng-change="tc.input_change()" ng-model="tc.input_text" ng-trim="false"></textarea>
+                </div>
+                <div class="translate-area-right">
+                    <div class="language-choose">
+                        <div class="language-select">
+                            中文(简体)
+                        </div>
+                        <input type="submit" class="translate-bottom" value="翻译" ng-click="tc.translate()">
+                        </input>
+                    </div>
+                    <textarea class="input-box box-output" ng-model="tc.output_text" readonly="readonly"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <script src="statics/js/angular.min.js"></script>
+        <script src="statics/js/index.js"></script>
+    </body>
+</html>
