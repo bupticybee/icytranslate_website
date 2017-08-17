@@ -25,14 +25,21 @@ angular.module("translate-app",[])
             this.output_text = this.output_text + '...';
 	    this.requesting = true;
             data = {'segment':request_text};          
+	    console.log(request_text);
             $http.post('/translate/segment',JSON.stringify(data)).then(function (data){
                 ts.requesting = false;
                 ts.output_text = data.data['translate'];
+		if(ts.try_to_request != false){
+			ts.translate()
+		}
             },function errfun(e){
                 ts.output_text = "err during api";
                 ts.requesting = false;
                 console.log('error during api');
                 console.log(e);
+		if(ts.try_to_request != false){
+			ts.translate()
+		}
             })
         }
     }
