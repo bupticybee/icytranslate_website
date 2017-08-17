@@ -19,10 +19,11 @@ angular.module("translate-app",[])
         this.translate = function(){
             var request_text = this.try_to_request;
             this.try_to_request = false;
-            if (request_text == false){
+            if (request_text == false || this.requesting == true){
                 return
             }
             this.output_text = this.output_text + '...';
+	    this.requesting = true;
             data = {'segment':request_text};          
             $http.post('/translate/segment',JSON.stringify(data)).then(function (data){
                 ts.requesting = false;
