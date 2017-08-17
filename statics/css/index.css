@@ -87,8 +87,8 @@
 }
 .input-box {
     width:100%;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     height:150px;
     font-size:24px;
     padding:8px 8px 32px;
